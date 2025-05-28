@@ -1,8 +1,8 @@
-import { JobSearchItem, JobSearchQuery } from "@/types/api";
+import { JobSearchQuery, JobItem } from "@/types/api";
 import { jsearchApi } from "../jsearchApi";
 
 
-export async function jobSearch(query: JobSearchQuery): Promise<JobSearchItem> {
+export async function jobSearch(query: JobSearchQuery): Promise<JobItem[]> {
   const resp = await jsearchApi.get('/search', {
     params: query
   })
