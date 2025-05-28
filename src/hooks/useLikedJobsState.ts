@@ -4,7 +4,7 @@ import {
   getLikedJobs,
   addLikedJob,
   removeLikedJob,
-} from "@/utils/storage/liked";
+} from "@/utils/storage/likedStorage";
 
 export function useLikedJobsState() {
   const [likedJobs, setLikedJobs] = useState<JobItem[]>([]);

@@ -1,27 +1,31 @@
-import { InputHTMLAttributes, forwardRef } from "react";
+// components/ui/inputs/Textarea.tsx
+import { TextareaHTMLAttributes, forwardRef } from "react";
 import clsx from "clsx";
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   error?: string | false;
   className?: string;
   containerClassName?: string;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ label, error, className, containerClassName, ...props }, ref) => {
     return (
       <div className={clsx("flex flex-col gap-1", containerClassName)}>
         {label && (
-          <label htmlFor={props.id} className="text-sm font-medium text-gray-700 dark:text-gray-300">
+          <label
+            htmlFor={props.id}
+            className="text-sm font-medium text-gray-700 dark:text-gray-300"
+          >
             {label}
           </label>
         )}
-        <input
+        <textarea
           ref={ref}
           className={clsx(
             "px-3 py-2 border rounded-md shadow-sm outline-none transition-colors",
-            "bg-white dark:bg-gray-900 text-sm",
+            "bg-white dark:bg-gray-900 text-sm resize-none",
             "border-gray-300 dark:border-gray-700 focus:border-blue-500 focus:ring-1 focus:ring-blue-500",
             error && "border-red-500 focus:border-red-500 focus:ring-red-500",
             className
@@ -34,6 +38,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
+Textarea.displayName = "Textarea";
 
-export default Input;
+export default Textarea;

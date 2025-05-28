@@ -53,9 +53,9 @@ const JobCard: React.FC<JobCardProps> = (props) => {
       </div>
 
       <div className="mt-2 flex flex-col gap-2">
-        <JobDetailRow label="Location" value={job_location}/>
-        <JobDetailRow label="Employment" value={job_employment_type}/>
-        <JobDetailRow label="Posted" value={`${job_posted_at}`}/>
+        { job_location && <JobDetailRow label="Location" value={job_location}/> }
+        { job_employment_type && <JobDetailRow label="Employment" value={job_employment_type}/> }
+        { job_posted_at && <JobDetailRow label="Posted" value={`${job_posted_at}`}/> }
         {job_min_salary && job_max_salary && job_salary_period && (
           <JobDetailRow label="Salary" value={`$${job_min_salary} - $${job_max_salary} / ${job_salary_period.toLowerCase()}`}/>
         )}

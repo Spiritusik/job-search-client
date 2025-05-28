@@ -13,7 +13,7 @@ export default function LikedJobs() {
   return (
     <>
       {
-        [].length
+        likedJobs.length
         ? <JobList data={likedJobs}/>
         : <div className='flex gap-5'>
           <H2>You haven&apos;t liked any jobs yet.</H2>
