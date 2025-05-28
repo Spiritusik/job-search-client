@@ -3,7 +3,7 @@ import { JobItem } from "@/types/api";
 import React from "react";
 import Avatar from "./ui/avatars/Avatar";
 import H2 from "./ui/typography/H2";
-import Button from "./ui/buttons/Button";
+import Button from "./ui/buttons/Button/Button";
 import { JobDetailRow } from "./JobDetailRow";
 import FavoriteIcon from "./ui/icons/FavoriteIcon";
 import { useLikedJobsState } from "@/hooks/useLikedJobsState";

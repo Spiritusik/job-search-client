@@ -3,7 +3,7 @@ import React from 'react'
 import JobList from './JobList'
 import { useLikedJobsState } from '@/hooks/useLikedJobsState'
 import H2 from './ui/typography/H2';
-import Button from './ui/buttons/Button';
+import Button from './ui/buttons/Button/Button';
 import { useRouter } from 'next/navigation';
 
 export default function LikedJobs() {

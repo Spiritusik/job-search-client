@@ -5,7 +5,7 @@ import Textarea from './ui/inputs/Textarea'
 import H2 from './ui/typography/H2'
 import { useFormik } from 'formik'
 import { createProfileSchema } from '@/schemas/createProfileSchema'
-import Button from './ui/buttons/Button'
+import Button from './ui/buttons/Button/Button'
 import { useProfile } from '@/context/profile'
 
 export default function CreateProfile() {

@@ -6,7 +6,7 @@ import Input from './ui/inputs/Input';
 import Loader from './ui/loaders/Loader';
 import JobList from './JobList';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import Button from './ui/buttons/Button';
+import Button from './ui/buttons/Button/Button';
 import { useProfile } from '@/context/profile';
 
 export default function JobSearch() {

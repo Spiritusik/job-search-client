@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React from 'react'
 import Container from './Container'
-import Button from './ui/buttons/Button'
+import Button from './ui/buttons/Button/Button'
 import { useProfile } from '@/context/profile'
 
 export default function Header() {
