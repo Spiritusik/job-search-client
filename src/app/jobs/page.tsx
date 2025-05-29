@@ -1,6 +1,6 @@
 import Container from "@/components/Container";
-import JobSearch from "@/components/JobSearch";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: 'Job Search — Find Your Dream Job',
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     type: 'website',
   },
 };
+
+const JobSearch = dynamic(() => import("@/components/JobSearch"), { ssr: false });
 
 export default function Home() {
   return (
