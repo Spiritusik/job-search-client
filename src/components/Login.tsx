@@ -24,7 +24,7 @@ export default function Login() {
     onSubmit: async (values, { setSubmitting, setStatus }) => {
       try {
         await login(values.email, values.password);
-        router.push('/jobs')
+        router.push('/jobs');
       } catch (error: unknown) {
         const err = error as AxiosError<{ message: string }>;
         const message =
@@ -75,6 +75,7 @@ export default function Login() {
             {formik.status}
           </p>
         )}
+        
         <Button type="submit" disabled={formik.isSubmitting}>
           Sign in
         </Button>
