@@ -19,7 +19,7 @@ const authInterceptorResponceError = async (error: AxiosError): Promise<AxiosRes
     originalRequest._isRetry = true;
     try {
       const response = await axios.get<{ accessToken: string }>(
-        `${process.env.REACT_APP_BASE_URL}api/user/refresh`,
+        `${process.env.NEXT_PUBLIC_AUTH_API_URL}api/user/refresh`,
         { withCredentials: true }
       );
 
@@ -41,7 +41,7 @@ const authInterceptorResponceError = async (error: AxiosError): Promise<AxiosRes
 
 const $authHost = axios.create({
   withCredentials: true,
-  baseURL: process.env.NEXT_PUBLIC_SITE_URL,
+  baseURL: process.env.NEXT_PUBLIC_AUTH_API_URL,
 });
 
 $authHost.interceptors.request.use(authInterceptorRequest);
