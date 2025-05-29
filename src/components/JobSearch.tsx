@@ -42,7 +42,7 @@ export default function JobSearch() {
     let query = `${profile.name} ${profile.jobTitle}`
     if(profile?.about) query += ` ${profile?.about}`;
     handleJobSearch({ query })
-  }, [profile])
+  }, [profile, handleJobSearch])
 
   return (
     <>
