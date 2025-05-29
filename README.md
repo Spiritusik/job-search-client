@@ -71,3 +71,6 @@ npm install
 ```bash
 npm run dev
 ```
+
+## 📎 Related Project
+- 👉 [Frontend – job-search-client](https://github.com/Spiritusik/job-search-server)
