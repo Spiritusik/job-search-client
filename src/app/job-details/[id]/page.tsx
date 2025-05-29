@@ -1,10 +1,15 @@
 import Container from "@/components/Container";
 import JobCard from "@/components/JobCard";
-import { cashJobDetails } from "@/lib/api/jsearch/jobDetails";
+import { jsearchApi } from "@/lib/api/jsearchApi";
 import { Metadata } from "next";
+import { cache } from "react";
+
+const getJob = cache(async (id: string) => {
+  return await jsearchApi.jobDetails(id);
+});
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const job = await cashJobDetails(params.id);
+  const job = await getJob(params.id);
 
   return {
     title: `${job.job_title} at ${job.employer_name} — Job Details`,
@@ -19,7 +24,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
 }
 
 export default async function Home({ params }: { params: { id: string } }) {
-  const job = await cashJobDetails(params.id);
+  const job = await getJob(params.id);
 
   return (
     <Container className="pt-5">

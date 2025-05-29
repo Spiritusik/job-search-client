@@ -1,6 +1,6 @@
 import useSWRMutation from "swr/mutation";
-import { jobSearch } from "@/lib/api/jsearch/jobSearch";
 import { JobSearchQuery } from "@/types/api";
+import { jsearchApi } from "@/lib/api/jsearchApi";
 
 export function useJobSearch() {
   const {
@@ -9,7 +9,7 @@ export function useJobSearch() {
     error,
     data,
   } = useSWRMutation("job-search", async (_key, { arg }: { arg: JobSearchQuery }) => {
-    return await jobSearch(arg);
+    return await jsearchApi.jobSearch(arg);
   });
 
   return {

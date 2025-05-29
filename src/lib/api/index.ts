@@ -1,1 +1,1 @@
-export * from "./jsearchApi"
+export * from "./hosts/jsearchHost"

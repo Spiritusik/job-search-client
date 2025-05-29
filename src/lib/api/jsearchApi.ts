@@ -1,9 +1,22 @@
-import axios from "axios";
+import { $jsearch } from './hosts';
+import { JobItem, JobSearchQuery } from "@/types/api";
 
-export const jsearchApi = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_JSEARCH_API_URL,
-  headers: {
-    "x-rapidapi-host": process.env.NEXT_PUBLIC_JSEARCH_API_HOST,
-    "x-rapidapi-key": process.env.NEXT_PUBLIC_JSEARCH_API_KEY,
-  },
-});
+class JsearchApi {
+    async jobDetails (id: string): Promise<JobItem> {
+      const resp = await $jsearch.get("/job-details", {
+        params: {
+          job_id: decodeURIComponent(id),
+        }
+      })
+      return resp?.data?.data[0] ?? null;
+    }
+
+    async jobSearch(query: JobSearchQuery): Promise<JobItem[]> {
+    const resp = await $jsearch.get('/search', {
+      params: query
+    })
+    return resp?.data?.data ?? [];
+  }
+}
+
+export const jsearchApi = new JsearchApi();
